@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  ubuntu-container-1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ubuntu-container-1
+    networks:
+      - mynetwork
+    ports:
+      - "2222:22"
+
+  ubuntu-container-2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ubuntu-container-2
+    networks:
+      - mynetwork
+    ports:
+      - "2223:22"
+
+  ubuntu-container-3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ubuntu-container-3
+    networks:
+      - mynetwork
+    ports:
+      - "2224:22"
+
+networks:
+  mynetwork:
+    driver: bridge
